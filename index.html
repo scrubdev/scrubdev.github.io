@@ -1,0 +1,99 @@
+<!--
+ * scrubdev - Web Frontend for the Automation System Project.
+ * Copyright (C) 2016 scrubdev (lead - Nicholas Tay <nexerq@gmail.com>)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, at version 3 of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ScrubDev</title>
+
+        <style>
+        body { visibility: hidden; }
+        body.ready { visibility: visible }
+        </style>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- full screen mobile app -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <!-- thanks favicon-generator.org -->
+        <link rel="apple-touch-icon" sizes="57x57" href="static/assets/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="static/assets/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="static/assets/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="static/assets/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="static/assets/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="static/assets/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="static/assets/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="static/assets/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="static/assets/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="static/assets/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="static/assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="static/assets/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="static/assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="static/assets/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="static/assets/favicon/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" type="text/css" href="static/build/bundle.css">
+    </head>
+    <body v-bind:class="{ 'dark': darkTheme }">
+        <div class="drawer drawer--centerbottom main-drawer">
+            <header role="banner">
+                <button type="button" class="drawer-toggle drawer-hamburger" v-show="this.$route.path !== '/'">
+                    <span class="sr-only">toggle navigation</span>
+                    <span class="drawer-hamburger-icon"></span>
+                </button>
+                <nav class="drawer-nav" role="navigation">
+                    <ul class="drawer-menu">
+                        <li><span class="drawer-brand" style="font-size: 12pt;">scrubdev alpha test v0.1.0</span></li>
+                        <li><a class="drawer-menu-item" v-link="'/home'" @click="hidedrawer"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+                        <li><a class="drawer-menu-item" v-link="'/favorites'" @click="hidedrawer"><i class="fa fa-heart-o" aria-hidden="true"></i> Favorites</a></li>
+                        <li><a class="drawer-menu-item" v-link="'/settings'" @click="hidedrawer"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
+                    </ul>
+                </nav>
+              </header>
+        </div>
+
+        <div class="drawer drawer--right options-drawer">
+            <header role="banner">
+                <nav class="options-drawer-nav" role="navigation">
+                    <ul class="drawer-menu">
+                        <li><span class="drawer-brand" style="font-size: 12pt;">options xd</span></li>
+                        <li><a class="drawer-menu-item" v-link="'/home'" @click="hidedrawer">xd</a></li>
+                        <li><a class="drawer-menu-item" v-link="'/favorites'" @click="hidedrawer">memed</a></li>
+                        <li><a class="drawer-menu-item" v-link="'/settings'" @click="hidedrawer">LUL</a></li>
+                    </ul>
+                </nav>
+              </header>
+        </div>
+
+        <main role="main">
+            <div class="head inlineup" v-if="this.$route.path !== '/'" transition="slide" style="position: inherit;">
+                <img src="static/assets/header.png" alt="scrubdev" style="height: 95px; margin-top: 10px; margin-left: 5px;">
+            </div>
+
+            <router-view class="slide" transition="slide"></router-view>
+        </main>
+
+        <!-- hamburger menu is put in the center of this but we style -->
+        <div class="footer" v-if="this.$route.path !== '/'"></div>
+
+        <script type="text/javascript" src="static/build/bundle.js"></script>
+    </body>
+</html>
