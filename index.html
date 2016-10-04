@@ -23,6 +23,12 @@
         <style>
         body { visibility: hidden; }
         body.ready { visibility: visible }
+
+        /* static override i really could not be stuffed at this point in time. */
+        .drawer--centerbottom.drawer-open .drawer-nav {
+            top: calc(100% - 275px) !important; /* crap-ish as need to change this everytime add item to drawer workaround */
+            padding-bottom: 48px;
+        }
         </style>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,6 +71,7 @@
                         <li><a class="drawer-menu-item" v-link="'/home'" @click="hidedrawer"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
                         <li><a class="drawer-menu-item" v-link="'/favorites'" @click="hidedrawer"><i class="fa fa-heart-o" aria-hidden="true"></i> Favorites</a></li>
                         <li><a class="drawer-menu-item" v-link="'/settings'" @click="hidedrawer"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
+                        <li><a class="drawer-menu-item" href="https://github.com/scrubdev" @click="hidedrawer" style="color: #FF2DEB;"><i class="fa fa-github-alt" aria-hidden="true"></i> Visit our full work on GitHub!</a></li>
                     </ul>
                 </nav>
               </header>
@@ -75,9 +82,9 @@
                 <nav class="options-drawer-nav" role="navigation">
                     <ul class="drawer-menu">
                         <li><span class="drawer-brand" style="font-size: 12pt;">options xd</span></li>
-                        <li><a class="drawer-menu-item" v-link="'/home'" @click="hidedrawer">xd</a></li>
-                        <li><a class="drawer-menu-item" v-link="'/favorites'" @click="hidedrawer">memed</a></li>
-                        <li><a class="drawer-menu-item" v-link="'/settings'" @click="hidedrawer">LUL</a></li>
+                        <li><a class="drawer-menu-item" @click="hidedrawer">this</a></li>
+                        <li><a class="drawer-menu-item" @click="hidedrawer">was a</a></li>
+                        <li><a class="drawer-menu-item" @click="hidedrawer">work in progress</a></li>
                     </ul>
                 </nav>
               </header>
